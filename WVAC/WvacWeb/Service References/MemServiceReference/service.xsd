@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/WVACWebServer.Models" />
+  <xs:element name="ConfirmShares">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shares" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmSharesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmSharesResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="payment" type="xs:double" />
+        <xs:element minOccurs="0" name="shares" type="xs:int" />
+        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmPaymentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMemberIns">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uID" type="xs:int" />
+        <xs:element minOccurs="0" name="shares" type="xs:int" />
+        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="months" type="xs:int" />
+        <xs:element minOccurs="0" name="bal" type="xs:double" />
+        <xs:element minOccurs="0" name="monthlyDue" type="xs:double" />
+        <xs:element minOccurs="0" name="typeIns" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMemberInsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WVACWebServer.Models" minOccurs="0" name="CreateMemberInsResult" nillable="true" type="q1:membership" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMemberLump">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="shares" type="xs:int" />
+        <xs:element minOccurs="0" name="modeofP" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMemberLumpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WVACWebServer.Models" minOccurs="0" name="CreateMemberLumpResult" nillable="true" type="q2:membership" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="shares" type="xs:int" />
+        <xs:element minOccurs="0" name="payment" type="xs:double" />
+        <xs:element minOccurs="0" name="uID" type="xs:int" />
+        <xs:element minOccurs="0" name="months" type="xs:int" />
+        <xs:element minOccurs="0" name="bal" type="xs:double" />
+        <xs:element minOccurs="0" name="monthlyDue" type="xs:double" />
+        <xs:element minOccurs="0" name="typeIns" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateMemberResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="shares" type="xs:int" />
+        <xs:element minOccurs="0" name="dPayment" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getBalanceResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateMonth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="typeIns" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateMonthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CalculateMonthResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBillResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getBillResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="payDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getFineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getFineResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="payDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fine" type="xs:double" />
+        <xs:element minOccurs="0" name="payment" type="xs:double" />
+        <xs:element minOccurs="0" name="cash" type="xs:double" />
+        <xs:element minOccurs="0" name="change" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPaymentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="payDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fine" type="xs:double" />
+        <xs:element minOccurs="0" name="payment" type="xs:double" />
+        <xs:element minOccurs="0" name="cash" type="xs:double" />
+        <xs:element minOccurs="0" name="change" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WVACWebServer.Models" minOccurs="0" name="CreatePaymentResult" nillable="true" type="q3:mempayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewMembership">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewMembershipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ViewMembershipResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="memID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRecordsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewAllMembership">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewAllMembershipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ViewAllMembershipResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

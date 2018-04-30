@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MembershipService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WVACWebServer.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMembershipService_ConfirmShares_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmShares" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_ConfirmShares_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmSharesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_ConfirmPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmPayment" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_ConfirmPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreateMemberIns_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMemberIns" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreateMemberIns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMemberInsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreateMemberLump_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMemberLump" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreateMemberLump_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMemberLumpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreateMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMember" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreateMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_getBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBalance" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_getBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CalculateMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateMonth" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CalculateMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_getBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBill" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_getBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_getFine_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFine" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_getFine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_GetPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayment" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_GetPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreatePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePayment" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_CreatePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_ViewMembership_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewMembership" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_ViewMembership_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewMembershipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_ViewAllMembership_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllMembership" />
+  </wsdl:message>
+  <wsdl:message name="IMembershipService_ViewAllMembership_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllMembershipResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMembershipService">
+    <wsdl:operation name="ConfirmShares">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/ConfirmShares" message="tns:IMembershipService_ConfirmShares_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/ConfirmSharesResponse" message="tns:IMembershipService_ConfirmShares_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/ConfirmPayment" message="tns:IMembershipService_ConfirmPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/ConfirmPaymentResponse" message="tns:IMembershipService_ConfirmPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMemberIns">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/CreateMemberIns" message="tns:IMembershipService_CreateMemberIns_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/CreateMemberInsResponse" message="tns:IMembershipService_CreateMemberIns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMemberLump">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/CreateMemberLump" message="tns:IMembershipService_CreateMemberLump_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/CreateMemberLumpResponse" message="tns:IMembershipService_CreateMemberLump_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/CreateMember" message="tns:IMembershipService_CreateMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/CreateMemberResponse" message="tns:IMembershipService_CreateMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/getBalance" message="tns:IMembershipService_getBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/getBalanceResponse" message="tns:IMembershipService_getBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/CalculateMonth" message="tns:IMembershipService_CalculateMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/CalculateMonthResponse" message="tns:IMembershipService_CalculateMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/getBill" message="tns:IMembershipService_getBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/getBillResponse" message="tns:IMembershipService_getBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/getFine" message="tns:IMembershipService_getFine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/getFineResponse" message="tns:IMembershipService_getFine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/GetPayment" message="tns:IMembershipService_GetPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/GetPaymentResponse" message="tns:IMembershipService_GetPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/CreatePayment" message="tns:IMembershipService_CreatePayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/CreatePaymentResponse" message="tns:IMembershipService_CreatePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewMembership">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/ViewMembership" message="tns:IMembershipService_ViewMembership_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/ViewMembershipResponse" message="tns:IMembershipService_ViewMembership_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/GetRecords" message="tns:IMembershipService_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/GetRecordsResponse" message="tns:IMembershipService_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewAllMembership">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMembershipService/ViewAllMembership" message="tns:IMembershipService_ViewAllMembership_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMembershipService/ViewAllMembershipResponse" message="tns:IMembershipService_ViewAllMembership_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMembershipService" type="tns:IMembershipService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConfirmShares">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/ConfirmShares" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmPayment">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/ConfirmPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMemberIns">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/CreateMemberIns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMemberLump">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/CreateMemberLump" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMember">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/CreateMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/getBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateMonth">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/CalculateMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBill">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/getBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFine">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/getFine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayment">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/GetPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePayment">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/CreatePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewMembership">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/ViewMembership" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewAllMembership">
+      <soap:operation soapAction="http://tempuri.org/IMembershipService/ViewAllMembership" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MembershipService">
+    <wsdl:port name="BasicHttpBinding_IMembershipService" binding="tns:BasicHttpBinding_IMembershipService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WvacWebServerProj/MembershipService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="wvacModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="loan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="uint" Nullable="false" />
+    <Property Name="TypeOfLoan" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="NoOfMonths" Type="uint" Nullable="false" />
+    <Property Name="LoanAmount" Type="double" Nullable="false" />
+    <Property Name="AdvanceIntrest" Type="double" Nullable="false" />
+    <Property Name="ServiceFee" Type="double" Nullable="false" />
+    <Property Name="NotarialFee" Type="double" Nullable="false" />
+    <Property Name="CBU" Type="double" Nullable="false" />
+    <Property Name="Balance" Type="double" />
+    <Property Name="MonthlyDue" Type="double" Nullable="false" />
+    <Property Name="DateRelease" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="DateDue" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="SchedDate" Type="datetime" Precision="0" />
+    <Property Name="Status" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loanpayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoanId" Type="uint" Nullable="false" />
+    <Property Name="Interest" Type="double" Nullable="false" />
+    <Property Name="Fine" Type="double" Nullable="false" />
+    <Property Name="AmountPaid" Type="double" Nullable="false" />
+    <Property Name="PayDate" Type="datetime" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="membership">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="uint" Nullable="false" />
+    <Property Name="Shares" Type="uint" Nullable="false" />
+    <Property Name="TotalAmount" Type="double" Nullable="false" />
+    <Property Name="Balance" Type="double" />
+    <Property Name="BeginDate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="ModeOfPayment" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="MonthsToPay" Type="uint" Nullable="false" />
+    <Property Name="MonthsPaid" Type="uint" />
+    <Property Name="MonthlyDue" Type="double" Nullable="false" />
+    <Property Name="SchedDate" Type="datetime" Precision="0" />
+    <Property Name="status" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="mempayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="memID" Type="uint" Nullable="false" />
+    <Property Name="payDate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="fine" Type="double" Nullable="false" />
+    <Property Name="amountPaid" Type="double" Nullable="false" />
+    <Property Name="cash" Type="double" Nullable="false" />
+    <Property Name="change" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="lastName" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="age" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="contactNo" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="emailAdd" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="civilStatus" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="wvacModelStoreContainer">
+    <EntitySet Name="loan" EntityType="Self.loan" Schema="wvac" store:Type="Tables" />
+    <EntitySet Name="loanpayment" EntityType="Self.loanpayment" Schema="wvac" store:Type="Tables" />
+    <EntitySet Name="membership" EntityType="Self.membership" Schema="wvac" store:Type="Tables" />
+    <EntitySet Name="mempayment" EntityType="Self.mempayment" Schema="wvac" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="wvac" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

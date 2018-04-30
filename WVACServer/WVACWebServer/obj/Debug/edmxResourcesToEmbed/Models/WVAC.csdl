@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="wvacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="loan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TypeOfLoan" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NoOfMonths" Type="Int64" Nullable="false" />
+    <Property Name="LoanAmount" Type="Double" Nullable="false" />
+    <Property Name="AdvanceIntrest" Type="Double" Nullable="false" />
+    <Property Name="ServiceFee" Type="Double" Nullable="false" />
+    <Property Name="NotarialFee" Type="Double" Nullable="false" />
+    <Property Name="CBU" Type="Double" Nullable="false" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="MonthlyDue" Type="Double" Nullable="false" />
+    <Property Name="DateRelease" Type="DateTime" Nullable="false" />
+    <Property Name="DateDue" Type="DateTime" Nullable="false" />
+    <Property Name="SchedDate" Type="DateTime" />
+    <Property Name="Status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mempayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="memID" Type="Int64" Nullable="false" />
+    <Property Name="payDate" Type="DateTime" Nullable="false" />
+    <Property Name="fine" Type="Double" Nullable="false" />
+    <Property Name="amountPaid" Type="Double" Nullable="false" />
+    <Property Name="cash" Type="Double" Nullable="false" />
+    <Property Name="change" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="age" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contactNo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emailAdd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="civilStatus" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="wvacEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="loans" EntityType="Self.loan" />
+    <EntitySet Name="mempayments" EntityType="Self.mempayment" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="memberships" EntityType="wvacModel.membership" />
+    <EntitySet Name="loanpayments" EntityType="wvacModel.loanpayment" />
+  </EntityContainer>
+  <EntityType Name="membership">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="Shares" Type="Int64" Nullable="false" />
+    <Property Name="TotalAmount" Type="Double" Nullable="false" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="BeginDate" Type="DateTime" Nullable="false" />
+    <Property Name="ModeOfPayment" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="MonthsToPay" Type="Int64" Nullable="false" />
+    <Property Name="MonthsPaid" Type="Int64" />
+    <Property Name="MonthlyDue" Type="Double" Nullable="false" />
+    <Property Name="SchedDate" Type="DateTime" />
+    <Property Name="status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="loanpayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoanId" Type="Int64" Nullable="false" />
+    <Property Name="Interest" Type="Double" Nullable="false" />
+    <Property Name="Fine" Type="Double" Nullable="false" />
+    <Property Name="AmountPaid" Type="Double" Nullable="false" />
+    <Property Name="PayDate" Type="DateTime" Nullable="false" />
+  </EntityType>
+</Schema>

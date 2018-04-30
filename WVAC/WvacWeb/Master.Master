@@ -1,0 +1,51 @@
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="WvacWeb.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="stylesheet" href="Styles/StyleSheet1.css" type="text/css">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            height: 39px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id ="wrapper">
+            <div id="banner">
+<asp:Image ID="Image1" runat="server" ImageUrl="~/Image/header.jpg" Width="100%" />
+            </div>
+
+            <div id="nav">
+                <ul style="height: 38px">
+                    <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/Home.aspx" ForeColor="White" Width="150px">Home</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/Member/MemApp.aspx" ForeColor="White" Width="275px">Membership Application</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/Loan/LoanApp.aspx" ForeColor="White" Width="200px">Loan Application</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink4" runat="server" ForeColor="White" Width="160px">Account</asp:HyperLink>
+                        <ul>
+                            <li><asp:HyperLink ID="HyperLink6" runat="server" ForeColor="White" Width="160px" NavigateUrl="~/Pages/Member/MemAccount.aspx">Membership</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink7" runat="server" ForeColor="White" Width="160px" NavigateUrl="~/Pages/Loan/LoanAccount.aspx">Loan </asp:HyperLink></li>
+                        </ul>
+                    </li>
+                    <li><asp:HyperLink ID="HyperLink5" runat="server" ForeColor="White" Width="150px" NavigateUrl="~/Pages/Admin.aspx">Admin</asp:HyperLink></li>
+                </ul>
+            </div>
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                    <p>
+                    </p>
+        
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

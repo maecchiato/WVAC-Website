@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LoanService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILoanService_ValidateMembership_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMembership" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_ValidateMembership_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMembershipResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getInterest_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInterest" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getInterest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInterestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getFine_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFine" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getFine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getMonthlyDue_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMonthlyDue" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getMonthlyDue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMonthlyDueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBalance" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getSchedDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSchedDate" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_getSchedDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSchedDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_processPay_InputMessage">
+    <wsdl:part name="parameters" element="tns:processPay" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_processPay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:processPayResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_viewProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:viewProfile" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_viewProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:viewProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_ViewAllLoans_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllLoans" />
+  </wsdl:message>
+  <wsdl:message name="ILoanService_ViewAllLoans_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAllLoansResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILoanService">
+    <wsdl:operation name="ValidateMembership">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/ValidateMembership" message="tns:ILoanService_ValidateMembership_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/ValidateMembershipResponse" message="tns:ILoanService_ValidateMembership_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInterest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/getInterest" message="tns:ILoanService_getInterest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/getInterestResponse" message="tns:ILoanService_getInterest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/getFine" message="tns:ILoanService_getFine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/getFineResponse" message="tns:ILoanService_getFine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMonthlyDue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/getMonthlyDue" message="tns:ILoanService_getMonthlyDue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/getMonthlyDueResponse" message="tns:ILoanService_getMonthlyDue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/getBalance" message="tns:ILoanService_getBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/getBalanceResponse" message="tns:ILoanService_getBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSchedDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/getSchedDate" message="tns:ILoanService_getSchedDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/getSchedDateResponse" message="tns:ILoanService_getSchedDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="processPay">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/processPay" message="tns:ILoanService_processPay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/processPayResponse" message="tns:ILoanService_processPay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="viewProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/viewProfile" message="tns:ILoanService_viewProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/viewProfileResponse" message="tns:ILoanService_viewProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/GetRecords" message="tns:ILoanService_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/GetRecordsResponse" message="tns:ILoanService_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewAllLoans">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoanService/ViewAllLoans" message="tns:ILoanService_ViewAllLoans_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoanService/ViewAllLoansResponse" message="tns:ILoanService_ViewAllLoans_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILoanService" type="tns:ILoanService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateMembership">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/ValidateMembership" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInterest">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/getInterest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFine">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/getFine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMonthlyDue">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/getMonthlyDue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/getBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSchedDate">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/getSchedDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processPay">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/processPay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viewProfile">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/viewProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewAllLoans">
+      <soap:operation soapAction="http://tempuri.org/ILoanService/ViewAllLoans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoanService">
+    <wsdl:port name="BasicHttpBinding_ILoanService" binding="tns:BasicHttpBinding_ILoanService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WvacWebServerProj/LoanService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

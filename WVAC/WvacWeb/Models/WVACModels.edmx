@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="wvacModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="loan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="uint" Nullable="false" />
+          <Property Name="TypeOfLoan" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="NoOfMonths" Type="uint" Nullable="false" />
+          <Property Name="LoanAmount" Type="double" Nullable="false" />
+          <Property Name="AdvanceIntrest" Type="double" Nullable="false" />
+          <Property Name="ServiceFee" Type="double" Nullable="false" />
+          <Property Name="NotarialFee" Type="double" Nullable="false" />
+          <Property Name="CBU" Type="double" Nullable="false" />
+          <Property Name="Balance" Type="double" />
+          <Property Name="MonthlyDue" Type="double" Nullable="false" />
+          <Property Name="DateRelease" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="DateDue" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="SchedDate" Type="datetime" Precision="0" />
+          <Property Name="Status" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loanpayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanId" Type="uint" Nullable="false" />
+          <Property Name="Interest" Type="double" Nullable="false" />
+          <Property Name="Fine" Type="double" Nullable="false" />
+          <Property Name="AmountPaid" Type="double" Nullable="false" />
+          <Property Name="PayDate" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="membership">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="uint" Nullable="false" />
+          <Property Name="Shares" Type="uint" Nullable="false" />
+          <Property Name="TotalAmount" Type="double" Nullable="false" />
+          <Property Name="Balance" Type="double" />
+          <Property Name="BeginDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ModeOfPayment" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="MonthsToPay" Type="uint" Nullable="false" />
+          <Property Name="MonthsPaid" Type="uint" />
+          <Property Name="MonthlyDue" Type="double" Nullable="false" />
+          <Property Name="SchedDate" Type="datetime" Precision="0" />
+          <Property Name="status" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="mempayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="memID" Type="uint" Nullable="false" />
+          <Property Name="payDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="fine" Type="double" Nullable="false" />
+          <Property Name="amountPaid" Type="double" Nullable="false" />
+          <Property Name="cash" Type="double" Nullable="false" />
+          <Property Name="change" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="age" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="contactNo" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="emailAdd" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="civilStatus" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="wvacModelStoreContainer">
+          <EntitySet Name="loan" EntityType="Self.loan" Schema="wvac" store:Type="Tables" />
+          <EntitySet Name="loanpayment" EntityType="Self.loanpayment" Schema="wvac" store:Type="Tables" />
+          <EntitySet Name="membership" EntityType="Self.membership" Schema="wvac" store:Type="Tables" />
+          <EntitySet Name="mempayment" EntityType="Self.mempayment" Schema="wvac" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="wvac" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="wvacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="wvacEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="memberships" EntityType="wvacModel.membership" />
+          <EntitySet Name="mempayments" EntityType="wvacModel.mempayment" />
+          <EntitySet Name="users" EntityType="wvacModel.user" />
+          <EntitySet Name="loans" EntityType="wvacModel.loan" />
+          <EntitySet Name="loanpayments" EntityType="wvacModel.loanpayment" />
+        </EntityContainer>
+        <EntityType Name="membership">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Shares" Type="Int64" Nullable="false" />
+          <Property Name="TotalAmount" Type="Double" Nullable="false" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" />
+          <Property Name="ModeOfPayment" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="MonthsToPay" Type="Int64" Nullable="false" />
+          <Property Name="MonthsPaid" Type="Int64" />
+          <Property Name="MonthlyDue" Type="Double" Nullable="false" />
+          <Property Name="SchedDate" Type="DateTime" />
+          <Property Name="status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mempayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="memID" Type="Int64" Nullable="false" />
+          <Property Name="payDate" Type="DateTime" Nullable="false" />
+          <Property Name="fine" Type="Double" Nullable="false" />
+          <Property Name="amountPaid" Type="Double" Nullable="false" />
+          <Property Name="cash" Type="Double" Nullable="false" />
+          <Property Name="change" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="contactNo" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="emailAdd" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="civilStatus" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="loan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="TypeOfLoan" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfMonths" Type="Int64" Nullable="false" />
+          <Property Name="LoanAmount" Type="Double" Nullable="false" />
+          <Property Name="AdvanceIntrest" Type="Double" Nullable="false" />
+          <Property Name="ServiceFee" Type="Double" Nullable="false" />
+          <Property Name="NotarialFee" Type="Double" Nullable="false" />
+          <Property Name="CBU" Type="Double" Nullable="false" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="MonthlyDue" Type="Double" Nullable="false" />
+          <Property Name="DateRelease" Type="DateTime" Nullable="false" />
+          <Property Name="DateDue" Type="DateTime" Nullable="false" />
+          <Property Name="SchedDate" Type="DateTime" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="loanpayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanId" Type="Int64" Nullable="false" />
+          <Property Name="Interest" Type="Double" Nullable="false" />
+          <Property Name="Fine" Type="Double" Nullable="false" />
+          <Property Name="AmountPaid" Type="Double" Nullable="false" />
+          <Property Name="PayDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="wvacModelStoreContainer" CdmEntityContainer="wvacEntities">
+          <EntitySetMapping Name="memberships">
+            <EntityTypeMapping TypeName="wvacModel.membership">
+              <MappingFragment StoreEntitySet="membership">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="SchedDate" ColumnName="SchedDate" />
+                <ScalarProperty Name="MonthlyDue" ColumnName="MonthlyDue" />
+                <ScalarProperty Name="MonthsPaid" ColumnName="MonthsPaid" />
+                <ScalarProperty Name="MonthsToPay" ColumnName="MonthsToPay" />
+                <ScalarProperty Name="ModeOfPayment" ColumnName="ModeOfPayment" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Shares" ColumnName="Shares" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mempayments">
+            <EntityTypeMapping TypeName="wvacModel.mempayment">
+              <MappingFragment StoreEntitySet="mempayment">
+                <ScalarProperty Name="change" ColumnName="change" />
+                <ScalarProperty Name="cash" ColumnName="cash" />
+                <ScalarProperty Name="amountPaid" ColumnName="amountPaid" />
+                <ScalarProperty Name="fine" ColumnName="fine" />
+                <ScalarProperty Name="payDate" ColumnName="payDate" />
+                <ScalarProperty Name="memID" ColumnName="memID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="wvacModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="civilStatus" ColumnName="civilStatus" />
+                <ScalarProperty Name="emailAdd" ColumnName="emailAdd" />
+                <ScalarProperty Name="contactNo" ColumnName="contactNo" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loans">
+            <EntityTypeMapping TypeName="wvacModel.loan">
+              <MappingFragment StoreEntitySet="loan">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SchedDate" ColumnName="SchedDate" />
+                <ScalarProperty Name="DateDue" ColumnName="DateDue" />
+                <ScalarProperty Name="DateRelease" ColumnName="DateRelease" />
+                <ScalarProperty Name="MonthlyDue" ColumnName="MonthlyDue" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="CBU" ColumnName="CBU" />
+                <ScalarProperty Name="NotarialFee" ColumnName="NotarialFee" />
+                <ScalarProperty Name="ServiceFee" ColumnName="ServiceFee" />
+                <ScalarProperty Name="AdvanceIntrest" ColumnName="AdvanceIntrest" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="NoOfMonths" ColumnName="NoOfMonths" />
+                <ScalarProperty Name="TypeOfLoan" ColumnName="TypeOfLoan" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loanpayments">
+            <EntityTypeMapping TypeName="wvacModel.loanpayment">
+              <MappingFragment StoreEntitySet="loanpayment">
+                <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="Fine" ColumnName="Fine" />
+                <ScalarProperty Name="Interest" ColumnName="Interest" />
+                <ScalarProperty Name="LoanId" ColumnName="LoanId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
